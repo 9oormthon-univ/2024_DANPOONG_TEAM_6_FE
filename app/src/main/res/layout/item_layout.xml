@@ -1,17 +1,18 @@
 <androidx.cardview.widget.CardView
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="8dp"
-    android:cardElevation="4dp"
-    android:cardCornerRadius="16dp"> <!-- 둥글게 설정 -->
+    app:cardElevation="4dp"
+    app:cardCornerRadius="16dp">
 
-    <!-- FrameLayout으로 이미지와 텍스트를 겹치게 배치 -->
+    <!-- FrameLayout to stack image and text -->
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <!-- 이미지가 배경 -->
+        <!-- Background Image -->
         <ImageView
             android:id="@+id/imageView"
             android:layout_width="match_parent"
@@ -19,7 +20,7 @@
             android:scaleType="centerCrop"
             android:src="@drawable/ic_launcher_background" />
 
-        <!-- 텍스트를 이미지 위에 표시 -->
+        <!-- Text overlay at the bottom -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
