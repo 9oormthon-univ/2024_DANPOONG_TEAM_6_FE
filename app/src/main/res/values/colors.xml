@@ -2,4 +2,13 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="Primary">#D2E18D</color>
+    <color name="OnPrimary">#353A1C</color>
+    <color name="PrimaryContainer">#88CB5F</color>
+    <color name="OnPrimaryContainer">#FFFFFF</color>
+    <color name="SurfaceDim">#EAF3DA</color>
+    <color name="OnSurface">#222222</color>
+    <color name="OnSurfaceVar">#3F3F3F</color>
+    <color name="Surface">#FEFCE9</color>
+
 </resources>
