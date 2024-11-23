@@ -27,19 +27,19 @@
                 android:id="@+id/month_header"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp"
                 android:text="2024년 11월"
                 android:textAppearance="?android:attr/textAppearanceLarge"
-                android:layout_gravity="start"
-                android:padding="8dp" />
-            <Button
+                android:textStyle="bold" />
+
+            <ImageButton
                 android:id="@+id/calendar_open_button"
                 android:layout_width="25dp"
-                android:layout_height="50dp"
-                android:padding="0dp"
-                android:backgroundTint="#FEFCE9"
-                android:textColor="#88CB5F"
-                android:text="V"
-                android:gravity="start|center_vertical" />
+                android:layout_height="25dp"
+                android:layout_gravity="center_vertical"
+                android:background="@drawable/arrow_drop_down" />
 
         </LinearLayout>
         <TextView
@@ -60,465 +60,6 @@
             android:layout_marginTop="8dp"
             android:background="@drawable/rounded_edittext_border"
             android:padding="10dp">
-
-            <!-- Day Names Row -->
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="일"
-                android:textColor="@color/black"
-                android:textStyle="bold"
-                android:layout_columnWeight="1"
-                android:gravity="center"
-                android:layout_marginTop="8dp"
-                android:layout_marginBottom="16dp"
-                android:textAppearance="?android:attr/textAppearanceSmall" />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="월"
-                android:textColor="@color/black"
-                android:textStyle="bold"
-                android:layout_columnWeight="1"
-                android:gravity="center"
-                android:layout_marginTop="8dp"
-                android:layout_marginBottom="16dp"
-                android:textAppearance="?android:attr/textAppearanceSmall" />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="화"
-                android:textColor="@color/black"
-                android:textStyle="bold"
-                android:layout_columnWeight="1"
-                android:gravity="center"
-                android:layout_marginTop="8dp"
-                android:layout_marginBottom="16dp"
-                android:textAppearance="?android:attr/textAppearanceSmall" />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="수"
-                android:textColor="@color/black"
-                android:textStyle="bold"
-                android:layout_columnWeight="1"
-                android:gravity="center"
-                android:layout_marginTop="8dp"
-                android:layout_marginBottom="16dp"
-                android:textAppearance="?android:attr/textAppearanceSmall" />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="목"
-                android:textColor="@color/black"
-                android:textStyle="bold"
-                android:layout_columnWeight="1"
-                android:gravity="center"
-                android:layout_marginTop="8dp"
-                android:layout_marginBottom="16dp"
-                android:textAppearance="?android:attr/textAppearanceSmall" />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="금"
-                android:textColor="@color/black"
-                android:textStyle="bold"
-                android:layout_columnWeight="1"
-                android:gravity="center"
-                android:layout_marginTop="8dp"
-                android:layout_marginBottom="16dp"
-                android:textAppearance="?android:attr/textAppearanceSmall" />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="토"
-                android:textColor="@color/black"
-                android:textStyle="bold"
-                android:layout_columnWeight="1"
-                android:gravity="center"
-                android:layout_marginTop="8dp"
-                android:layout_marginBottom="16dp"
-                android:textAppearance="?android:attr/textAppearanceSmall" />
-
-            <TextView
-                android:id="@+id/calendar1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="00"
-                android:gravity="center"
-                android:layout_columnWeight="1"
-                android:padding="8dp"
-                android:background="?android:attr/selectableItemBackground" />
-            <TextView
-                android:id="@+id/calendar2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="00"
-                android:gravity="center"
-                android:layout_columnWeight="1"
-                android:padding="8dp"
-                android:background="?android:attr/selectableItemBackground" />
-            <TextView
-                android:id="@+id/calendar3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="00"
-                android:gravity="center"
-                android:layout_columnWeight="1"
-                android:padding="8dp"
-                android:background="?android:attr/selectableItemBackground" />
-            <TextView
-                android:id="@+id/calendar4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="00"
-                android:gravity="center"
-                android:layout_columnWeight="1"
-                android:padding="8dp"
-                android:background="?android:attr/selectableItemBackground" />
-            <TextView
-                android:id="@+id/calendar5"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="00"
-                android:gravity="center"
-                android:layout_columnWeight="1"
-                android:padding="8dp"
-                android:background="?android:attr/selectableItemBackground" />
-            <TextView
-                android:id="@+id/calendar6"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="00"
-                android:gravity="center"
-                android:layout_columnWeight="1"
-                android:padding="8dp"
-                android:background="?android:attr/selectableItemBackground" />
-            <TextView
-                android:id="@+id/calendar7"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="00"
-                android:gravity="center"
-                android:layout_columnWeight="1"
-                android:padding="8dp"
-                android:background="?android:attr/selectableItemBackground" />
-            <TextView
-                android:id="@+id/calendar8"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="00"
-                android:gravity="center"
-                android:layout_columnWeight="1"
-                android:padding="8dp"
-                android:background="?android:attr/selectableItemBackground" />
-            <TextView
-                android:id="@+id/calendar9"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="00"
-                android:gravity="center"
-                android:layout_columnWeight="1"
-                android:padding="8dp"
-                android:background="?android:attr/selectableItemBackground" />
-            <TextView
-                android:id="@+id/calendar10"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="00"
-                android:gravity="center"
-                android:layout_columnWeight="1"
-                android:padding="8dp"
-                android:background="?android:attr/selectableItemBackground" />
-            <TextView
-                android:id="@+id/calendar11"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="00"
-                android:gravity="center"
-                android:layout_columnWeight="1"
-                android:padding="8dp"
-                android:background="?android:attr/selectableItemBackground" />
-            <TextView
-                android:id="@+id/calendar12"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="00"
-                android:gravity="center"
-                android:layout_columnWeight="1"
-                android:padding="8dp"
-                android:background="?android:attr/selectableItemBackground" />
-            <TextView
-                android:id="@+id/calendar13"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="00"
-                android:gravity="center"
-                android:layout_columnWeight="1"
-                android:padding="8dp"
-                android:background="?android:attr/selectableItemBackground" />
-            <TextView
-                android:id="@+id/calendar14"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="00"
-                android:gravity="center"
-                android:layout_columnWeight="1"
-                android:padding="8dp"
-                android:background="?android:attr/selectableItemBackground" />
-            <TextView
-                android:id="@+id/calendar15"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="00"
-                android:gravity="center"
-                android:layout_columnWeight="1"
-                android:padding="8dp"
-                android:background="?android:attr/selectableItemBackground" />
-            <TextView
-                android:id="@+id/calendar16"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="00"
-                android:gravity="center"
-                android:layout_columnWeight="1"
-                android:padding="8dp"
-                android:background="?android:attr/selectableItemBackground" />
-            <TextView
-                android:id="@+id/calendar17"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="00"
-                android:gravity="center"
-                android:layout_columnWeight="1"
-                android:padding="8dp"
-                android:background="?android:attr/selectableItemBackground" />
-            <TextView
-                android:id="@+id/calendar18"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="00"
-                android:gravity="center"
-                android:layout_columnWeight="1"
-                android:padding="8dp"
-                android:background="?android:attr/selectableItemBackground" />
-            <TextView
-                android:id="@+id/calendar19"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="00"
-                android:gravity="center"
-                android:layout_columnWeight="1"
-                android:padding="8dp"
-                android:background="?android:attr/selectableItemBackground" />
-            <TextView
-                android:id="@+id/calendar20"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="00"
-                android:gravity="center"
-                android:layout_columnWeight="1"
-                android:padding="8dp"
-                android:background="?android:attr/selectableItemBackground" />
-            <TextView
-                android:id="@+id/calendar21"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="00"
-                android:gravity="center"
-                android:layout_columnWeight="1"
-                android:padding="8dp"
-                android:background="?android:attr/selectableItemBackground" />
-            <TextView
-                android:id="@+id/calendar22"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="00"
-                android:gravity="center"
-                android:layout_columnWeight="1"
-                android:padding="8dp"
-                android:background="?android:attr/selectableItemBackground" />
-            <TextView
-                android:id="@+id/calendar23"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="00"
-                android:gravity="center"
-                android:layout_columnWeight="1"
-                android:padding="8dp"
-                android:background="?android:attr/selectableItemBackground" />
-            <TextView
-                android:id="@+id/calendar24"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="00"
-                android:gravity="center"
-                android:layout_columnWeight="1"
-                android:padding="8dp"
-                android:background="?android:attr/selectableItemBackground" />
-            <TextView
-                android:id="@+id/calendar25"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="00"
-                android:gravity="center"
-                android:layout_columnWeight="1"
-                android:padding="8dp"
-                android:background="?android:attr/selectableItemBackground" />
-            <TextView
-                android:id="@+id/calendar26"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="00"
-                android:gravity="center"
-                android:layout_columnWeight="1"
-                android:padding="8dp"
-                android:background="?android:attr/selectableItemBackground" />
-            <TextView
-                android:id="@+id/calendar27"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="00"
-                android:gravity="center"
-                android:layout_columnWeight="1"
-                android:padding="8dp"
-                android:background="?android:attr/selectableItemBackground" />
-            <TextView
-                android:id="@+id/calendar28"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="00"
-                android:gravity="center"
-                android:layout_columnWeight="1"
-                android:padding="8dp"
-                android:background="?android:attr/selectableItemBackground" />
-            <TextView
-                android:id="@+id/calendar29"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="00"
-                android:gravity="center"
-                android:layout_columnWeight="1"
-                android:padding="8dp"
-                android:background="?android:attr/selectableItemBackground" />
-            <TextView
-                android:id="@+id/calendar30"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="00"
-                android:gravity="center"
-                android:layout_columnWeight="1"
-                android:padding="8dp"
-                android:background="?android:attr/selectableItemBackground" />
-            <TextView
-                android:id="@+id/calendar31"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="00"
-                android:gravity="center"
-                android:layout_columnWeight="1"
-                android:padding="8dp"
-                android:background="?android:attr/selectableItemBackground" />
-            <TextView
-                android:id="@+id/calendar32"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="00"
-                android:gravity="center"
-                android:layout_columnWeight="1"
-                android:padding="8dp"
-                android:background="?android:attr/selectableItemBackground" />
-            <TextView
-                android:id="@+id/calendar33"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="00"
-                android:gravity="center"
-                android:layout_columnWeight="1"
-                android:padding="8dp"
-                android:background="?android:attr/selectableItemBackground" />
-            <TextView
-                android:id="@+id/calendar34"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="00"
-                android:gravity="center"
-                android:layout_columnWeight="1"
-                android:padding="8dp"
-                android:background="?android:attr/selectableItemBackground" />
-            <TextView
-                android:id="@+id/calendar35"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="00"
-                android:gravity="center"
-                android:layout_columnWeight="1"
-                android:padding="8dp"
-                android:background="?android:attr/selectableItemBackground" />
-            <TextView
-                android:id="@+id/calendar36"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="00"
-                android:gravity="center"
-                android:layout_columnWeight="1"
-                android:padding="8dp"
-                android:background="?android:attr/selectableItemBackground" />
-            <TextView
-                android:id="@+id/calendar37"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="00"
-                android:gravity="center"
-                android:layout_columnWeight="1"
-                android:padding="8dp"
-                android:background="?android:attr/selectableItemBackground" />
-            <TextView
-                android:id="@+id/calendar38"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="00"
-                android:gravity="center"
-                android:layout_columnWeight="1"
-                android:padding="8dp"
-                android:background="?android:attr/selectableItemBackground" />
-            <TextView
-                android:id="@+id/calendar39"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="00"
-                android:gravity="center"
-                android:layout_columnWeight="1"
-                android:padding="8dp"
-                android:background="?android:attr/selectableItemBackground" />
-            <TextView
-                android:id="@+id/calendar40"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="00"
-                android:gravity="center"
-                android:layout_columnWeight="1"
-                android:padding="8dp"
-                android:background="?android:attr/selectableItemBackground" />
-            <TextView
-                android:id="@+id/calendar41"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="00"
-                android:gravity="center"
-                android:layout_columnWeight="1"
-                android:padding="8dp"
-                android:background="?android:attr/selectableItemBackground" />
-            <TextView
-                android:id="@+id/calendar42"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="00"
-                android:gravity="center"
-                android:layout_columnWeight="1"
-                android:padding="8dp"
-                android:background="?android:attr/selectableItemBackground" />
-
         </GridLayout>
     </LinearLayout>
 
@@ -579,9 +120,9 @@
         android:visibility="gone">
 
         <LinearLayout
-            android:layout_width="380dp"
-            android:layout_height="380dp"
-            android:background="@drawable/rounded_edittext_border"
+            android:layout_width="364dp"
+            android:layout_height="364dp"
+            android:background="@drawable/white_circle_background"
             android:orientation="vertical"
             android:padding="16dp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -601,27 +142,24 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:gravity="center_vertical"
+                    android:paddingStart="8dp"
                     android:text="20xx년 xx월 xx일"
                     android:textColor="@color/black"
-                    android:textSize="20sp" />
+                    android:textSize="20sp"
+                    android:textStyle="bold"/>
 
-                <Button
+                <ImageButton
                     android:id="@+id/modal_exit_btn"
-                    android:layout_width="50dp"
-                    android:layout_height="match_parent"
-                    android:backgroundTint="@color/white"
-                    android:gravity="center"
-                    android:padding="0dp"
-                    android:text="x"
-                    android:textColor="@color/black"
-                    android:textSize="25sp" />
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_gravity="center_vertical"
+                    android:background="@drawable/navigation_aosp_" />
             </LinearLayout>
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recyclerView"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@color/white"
                 android:contentDescription="일기 리스트"
                 android:visibility="gone"
                 app:layout_behavior="@string/appbar_scrolling_view_behavior"
@@ -630,8 +168,7 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/content_constrain"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:visibility="visible">
+                android:layout_height="match_parent">
 
                 <TextView
                     android:id="@+id/no_text"
