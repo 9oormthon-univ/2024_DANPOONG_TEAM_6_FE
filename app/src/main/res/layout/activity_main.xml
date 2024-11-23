@@ -17,6 +17,7 @@
         android:layout_gravity="center"
         app:layout_constraintTop_toTopOf="parent" />
     <ImageView
+        android:id="@+id/login"
         android:layout_width="364dp"
         android:layout_height="54.6dp"
         android:layout_marginTop="135.147dp"
