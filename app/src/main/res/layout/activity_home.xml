@@ -1,0 +1,683 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FEFCE9">
+
+    <!-- Custom Calendar Section -->
+    <LinearLayout
+        android:id="@+id/calendar_section"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginBottom="16dp"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:id="@+id/month_header"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2024년 11월"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:layout_gravity="start"
+                android:padding="8dp" />
+            <Button
+                android:id="@+id/calendar_open_button"
+                android:layout_width="25dp"
+                android:layout_height="50dp"
+                android:padding="0dp"
+                android:backgroundTint="#FEFCE9"
+                android:textColor="#88CB5F"
+                android:text="V"
+                android:gravity="start|center_vertical" />
+
+        </LinearLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="우리 지역의 축제를 한 눈에!"
+            android:gravity="center"
+            android:layout_columnWeight="1"
+            android:background="?android:attr/selectableItemBackground" />
+        <!-- Custom Calendar Grid -->
+        <GridLayout
+            android:id="@+id/custom_calendar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:columnCount="7"
+            android:rowCount="6"
+            android:clickable="true"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/rounded_edittext_border"
+            android:padding="10dp">
+
+            <!-- Day Names Row -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="일"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:layout_columnWeight="1"
+                android:gravity="center"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="16dp"
+                android:textAppearance="?android:attr/textAppearanceSmall" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="월"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:layout_columnWeight="1"
+                android:gravity="center"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="16dp"
+                android:textAppearance="?android:attr/textAppearanceSmall" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="화"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:layout_columnWeight="1"
+                android:gravity="center"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="16dp"
+                android:textAppearance="?android:attr/textAppearanceSmall" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="수"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:layout_columnWeight="1"
+                android:gravity="center"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="16dp"
+                android:textAppearance="?android:attr/textAppearanceSmall" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="목"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:layout_columnWeight="1"
+                android:gravity="center"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="16dp"
+                android:textAppearance="?android:attr/textAppearanceSmall" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="금"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:layout_columnWeight="1"
+                android:gravity="center"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="16dp"
+                android:textAppearance="?android:attr/textAppearanceSmall" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="토"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:layout_columnWeight="1"
+                android:gravity="center"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="16dp"
+                android:textAppearance="?android:attr/textAppearanceSmall" />
+
+            <TextView
+                android:id="@+id/calendar1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="00"
+                android:gravity="center"
+                android:layout_columnWeight="1"
+                android:padding="8dp"
+                android:background="?android:attr/selectableItemBackground" />
+            <TextView
+                android:id="@+id/calendar2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="00"
+                android:gravity="center"
+                android:layout_columnWeight="1"
+                android:padding="8dp"
+                android:background="?android:attr/selectableItemBackground" />
+            <TextView
+                android:id="@+id/calendar3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="00"
+                android:gravity="center"
+                android:layout_columnWeight="1"
+                android:padding="8dp"
+                android:background="?android:attr/selectableItemBackground" />
+            <TextView
+                android:id="@+id/calendar4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="00"
+                android:gravity="center"
+                android:layout_columnWeight="1"
+                android:padding="8dp"
+                android:background="?android:attr/selectableItemBackground" />
+            <TextView
+                android:id="@+id/calendar5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="00"
+                android:gravity="center"
+                android:layout_columnWeight="1"
+                android:padding="8dp"
+                android:background="?android:attr/selectableItemBackground" />
+            <TextView
+                android:id="@+id/calendar6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="00"
+                android:gravity="center"
+                android:layout_columnWeight="1"
+                android:padding="8dp"
+                android:background="?android:attr/selectableItemBackground" />
+            <TextView
+                android:id="@+id/calendar7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="00"
+                android:gravity="center"
+                android:layout_columnWeight="1"
+                android:padding="8dp"
+                android:background="?android:attr/selectableItemBackground" />
+            <TextView
+                android:id="@+id/calendar8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="00"
+                android:gravity="center"
+                android:layout_columnWeight="1"
+                android:padding="8dp"
+                android:background="?android:attr/selectableItemBackground" />
+            <TextView
+                android:id="@+id/calendar9"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="00"
+                android:gravity="center"
+                android:layout_columnWeight="1"
+                android:padding="8dp"
+                android:background="?android:attr/selectableItemBackground" />
+            <TextView
+                android:id="@+id/calendar10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="00"
+                android:gravity="center"
+                android:layout_columnWeight="1"
+                android:padding="8dp"
+                android:background="?android:attr/selectableItemBackground" />
+            <TextView
+                android:id="@+id/calendar11"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="00"
+                android:gravity="center"
+                android:layout_columnWeight="1"
+                android:padding="8dp"
+                android:background="?android:attr/selectableItemBackground" />
+            <TextView
+                android:id="@+id/calendar12"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="00"
+                android:gravity="center"
+                android:layout_columnWeight="1"
+                android:padding="8dp"
+                android:background="?android:attr/selectableItemBackground" />
+            <TextView
+                android:id="@+id/calendar13"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="00"
+                android:gravity="center"
+                android:layout_columnWeight="1"
+                android:padding="8dp"
+                android:background="?android:attr/selectableItemBackground" />
+            <TextView
+                android:id="@+id/calendar14"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="00"
+                android:gravity="center"
+                android:layout_columnWeight="1"
+                android:padding="8dp"
+                android:background="?android:attr/selectableItemBackground" />
+            <TextView
+                android:id="@+id/calendar15"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="00"
+                android:gravity="center"
+                android:layout_columnWeight="1"
+                android:padding="8dp"
+                android:background="?android:attr/selectableItemBackground" />
+            <TextView
+                android:id="@+id/calendar16"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="00"
+                android:gravity="center"
+                android:layout_columnWeight="1"
+                android:padding="8dp"
+                android:background="?android:attr/selectableItemBackground" />
+            <TextView
+                android:id="@+id/calendar17"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="00"
+                android:gravity="center"
+                android:layout_columnWeight="1"
+                android:padding="8dp"
+                android:background="?android:attr/selectableItemBackground" />
+            <TextView
+                android:id="@+id/calendar18"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="00"
+                android:gravity="center"
+                android:layout_columnWeight="1"
+                android:padding="8dp"
+                android:background="?android:attr/selectableItemBackground" />
+            <TextView
+                android:id="@+id/calendar19"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="00"
+                android:gravity="center"
+                android:layout_columnWeight="1"
+                android:padding="8dp"
+                android:background="?android:attr/selectableItemBackground" />
+            <TextView
+                android:id="@+id/calendar20"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="00"
+                android:gravity="center"
+                android:layout_columnWeight="1"
+                android:padding="8dp"
+                android:background="?android:attr/selectableItemBackground" />
+            <TextView
+                android:id="@+id/calendar21"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="00"
+                android:gravity="center"
+                android:layout_columnWeight="1"
+                android:padding="8dp"
+                android:background="?android:attr/selectableItemBackground" />
+            <TextView
+                android:id="@+id/calendar22"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="00"
+                android:gravity="center"
+                android:layout_columnWeight="1"
+                android:padding="8dp"
+                android:background="?android:attr/selectableItemBackground" />
+            <TextView
+                android:id="@+id/calendar23"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="00"
+                android:gravity="center"
+                android:layout_columnWeight="1"
+                android:padding="8dp"
+                android:background="?android:attr/selectableItemBackground" />
+            <TextView
+                android:id="@+id/calendar24"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="00"
+                android:gravity="center"
+                android:layout_columnWeight="1"
+                android:padding="8dp"
+                android:background="?android:attr/selectableItemBackground" />
+            <TextView
+                android:id="@+id/calendar25"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="00"
+                android:gravity="center"
+                android:layout_columnWeight="1"
+                android:padding="8dp"
+                android:background="?android:attr/selectableItemBackground" />
+            <TextView
+                android:id="@+id/calendar26"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="00"
+                android:gravity="center"
+                android:layout_columnWeight="1"
+                android:padding="8dp"
+                android:background="?android:attr/selectableItemBackground" />
+            <TextView
+                android:id="@+id/calendar27"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="00"
+                android:gravity="center"
+                android:layout_columnWeight="1"
+                android:padding="8dp"
+                android:background="?android:attr/selectableItemBackground" />
+            <TextView
+                android:id="@+id/calendar28"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="00"
+                android:gravity="center"
+                android:layout_columnWeight="1"
+                android:padding="8dp"
+                android:background="?android:attr/selectableItemBackground" />
+            <TextView
+                android:id="@+id/calendar29"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="00"
+                android:gravity="center"
+                android:layout_columnWeight="1"
+                android:padding="8dp"
+                android:background="?android:attr/selectableItemBackground" />
+            <TextView
+                android:id="@+id/calendar30"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="00"
+                android:gravity="center"
+                android:layout_columnWeight="1"
+                android:padding="8dp"
+                android:background="?android:attr/selectableItemBackground" />
+            <TextView
+                android:id="@+id/calendar31"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="00"
+                android:gravity="center"
+                android:layout_columnWeight="1"
+                android:padding="8dp"
+                android:background="?android:attr/selectableItemBackground" />
+            <TextView
+                android:id="@+id/calendar32"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="00"
+                android:gravity="center"
+                android:layout_columnWeight="1"
+                android:padding="8dp"
+                android:background="?android:attr/selectableItemBackground" />
+            <TextView
+                android:id="@+id/calendar33"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="00"
+                android:gravity="center"
+                android:layout_columnWeight="1"
+                android:padding="8dp"
+                android:background="?android:attr/selectableItemBackground" />
+            <TextView
+                android:id="@+id/calendar34"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="00"
+                android:gravity="center"
+                android:layout_columnWeight="1"
+                android:padding="8dp"
+                android:background="?android:attr/selectableItemBackground" />
+            <TextView
+                android:id="@+id/calendar35"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="00"
+                android:gravity="center"
+                android:layout_columnWeight="1"
+                android:padding="8dp"
+                android:background="?android:attr/selectableItemBackground" />
+            <TextView
+                android:id="@+id/calendar36"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="00"
+                android:gravity="center"
+                android:layout_columnWeight="1"
+                android:padding="8dp"
+                android:background="?android:attr/selectableItemBackground" />
+            <TextView
+                android:id="@+id/calendar37"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="00"
+                android:gravity="center"
+                android:layout_columnWeight="1"
+                android:padding="8dp"
+                android:background="?android:attr/selectableItemBackground" />
+            <TextView
+                android:id="@+id/calendar38"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="00"
+                android:gravity="center"
+                android:layout_columnWeight="1"
+                android:padding="8dp"
+                android:background="?android:attr/selectableItemBackground" />
+            <TextView
+                android:id="@+id/calendar39"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="00"
+                android:gravity="center"
+                android:layout_columnWeight="1"
+                android:padding="8dp"
+                android:background="?android:attr/selectableItemBackground" />
+            <TextView
+                android:id="@+id/calendar40"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="00"
+                android:gravity="center"
+                android:layout_columnWeight="1"
+                android:padding="8dp"
+                android:background="?android:attr/selectableItemBackground" />
+            <TextView
+                android:id="@+id/calendar41"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="00"
+                android:gravity="center"
+                android:layout_columnWeight="1"
+                android:padding="8dp"
+                android:background="?android:attr/selectableItemBackground" />
+            <TextView
+                android:id="@+id/calendar42"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="00"
+                android:gravity="center"
+                android:layout_columnWeight="1"
+                android:padding="8dp"
+                android:background="?android:attr/selectableItemBackground" />
+
+        </GridLayout>
+    </LinearLayout>
+
+    <!-- Recommendations Section -->
+    <LinearLayout
+        android:id="@+id/recommendations_section"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/calendar_section"
+        android:orientation="vertical"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/recommendations_header"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="추천 축제"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:padding="8dp" />
+
+            <Button
+                android:layout_width="75dp"
+                android:layout_height="match_parent"
+                android:backgroundTint="#FEFCE9"
+                android:padding="0dp"
+                android:text="더보기"
+                android:textColor="#F55929"/>
+
+        </LinearLayout>
+        <!-- Horizontal Scroll View for Festival Cards -->
+        <HorizontalScrollView
+            android:id="@+id/horizontal_scroll_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scrollbars="none"
+            android:padding="8dp">
+
+            <LinearLayout
+                android:id="@+id/festival_list_container"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" />
+        </HorizontalScrollView>
+    </LinearLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/contentPanel"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#80000000"
+        android:visibility="gone">
+
+        <LinearLayout
+            android:layout_width="380dp"
+            android:layout_height="380dp"
+            android:background="@drawable/rounded_edittext_border"
+            android:orientation="vertical"
+            android:padding="16dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.2">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/modal_date_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:text="20xx년 xx월 xx일"
+                    android:textColor="@color/black"
+                    android:textSize="20sp" />
+
+                <Button
+                    android:id="@+id/modal_exit_btn"
+                    android:layout_width="50dp"
+                    android:layout_height="match_parent"
+                    android:backgroundTint="@color/white"
+                    android:gravity="center"
+                    android:padding="0dp"
+                    android:text="x"
+                    android:textColor="@color/black"
+                    android:textSize="25sp" />
+            </LinearLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/white"
+                android:contentDescription="일기 리스트"
+                android:visibility="gone"
+                app:layout_behavior="@string/appbar_scrolling_view_behavior"
+                tools:listitem="@layout/calendaritem" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/content_constrain"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:visibility="visible">
+
+                <TextView
+                    android:id="@+id/no_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="해당 날짜에 예정된 축제가 없습니다"
+                    android:textColor="@color/black"
+                    android:textSize="15sp" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/calendarOverlay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#80000000"
+        android:visibility="gone">
+
+        <CalendarView
+            android:id="@+id/calendarView"
+            android:layout_width="380dp"
+            android:layout_height="380dp"
+            android:background="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.2" />
+
+        <Button
+            android:id="@+id/calendarOK"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="OK"
+            app:layout_constraintEnd_toEndOf="@+id/calendarView"
+            app:layout_constraintTop_toBottomOf="@+id/calendarView" />
+
+        <Button
+            android:id="@+id/calendarcancle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:text="Cancle"
+            app:layout_constraintEnd_toStartOf="@+id/calendarOK"
+            app:layout_constraintTop_toBottomOf="@+id/calendarView" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</RelativeLayout>
