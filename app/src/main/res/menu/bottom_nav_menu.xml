@@ -2,21 +2,31 @@
 
     <item
         android:id="@+id/menu_home"
+        android:enabled="true"
+        android:icon="@drawable/home_24dp_777777_1"
         android:title="홈" />
 
     <item
-        android:id="@+id/menu_content"
-        android:title="내역" />
+        android:id="@+id/menu_explore"
+        android:enabled="true"
+        android:icon="@drawable/explore_24dp_777777_1"
+        android:title="내주변" />
 
     <item
-        android:id="@+id/menu_posts"
-        android:title="게시물" />
+        android:id="@+id/menu_snippet"
+        android:enabled="true"
+        android:icon="@drawable/text_snippet_24dp_777777_1"
+        android:title="게시판" />
 
     <item
-        android:id="@+id/menu_calendar"
-        android:title="일정" />
+        android:id="@+id/menu_note"
+        android:enabled="true"
+        android:icon="@drawable/note_alt_24dp_777777_1"
+        android:title="일기장" />
 
     <item
-        android:id="@+id/menu_profile"
-        android:title="내 페이지" />
+        android:id="@+id/menu_account"
+        android:enabled="true"
+        android:icon="@drawable/account_box_24dp_777777_1"
+        android:title="내페이지" />
 </menu>

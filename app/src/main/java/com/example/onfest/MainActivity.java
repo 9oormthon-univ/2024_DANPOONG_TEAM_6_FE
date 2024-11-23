@@ -123,24 +123,6 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
-
-//        Function2<OAuthToken,Throwable, Unit> callback =new Function2<OAuthToken, Throwable, Unit>() {
-//            @Override
-//            // 콜백 메서드 ,
-//            public Unit invoke(OAuthToken oAuthToken, Throwable throwable) {
-//                Log.e(TAG,"CallBack Method");
-//                //oAuthToken != null 이라면 로그인 성공
-//                if(oAuthToken!=null){
-//                    // 토큰이 전달된다면 로그인이 성공한 것이고 토큰이 전달되지 않으면 로그인 실패한다.
-//
-//                }else {
-//                    //로그인 실패
-//                    Log.e(TAG, "invoke: login fail" );
-//                }
-//
-//                return null;
-//            }
-//        };
     }
 
     private void getHashKey() {

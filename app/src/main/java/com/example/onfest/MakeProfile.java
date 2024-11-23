@@ -16,6 +16,14 @@ import androidx.core.view.WindowInsetsCompat;
 
 import com.google.android.material.snackbar.Snackbar;
 
+import okhttp3.MultipartBody;
+import okhttp3.RequestBody;
+import retrofit2.Call;
+import retrofit2.http.Header;
+import retrofit2.http.Multipart;
+import retrofit2.http.POST;
+import retrofit2.http.Part;
+
 public class MakeProfile extends AppCompatActivity {
 
     Button submitButton;
@@ -60,4 +68,11 @@ public class MakeProfile extends AppCompatActivity {
         });
 
     }
+}
+interface signupApiService{
+    @Multipart
+    @POST("api/order/create")
+    Call<User> createAccount(@Header("Authorization") String authHeader,
+                              @Part("nickname") RequestBody nickname,
+                              @Part MultipartBody.Part file);
 }
