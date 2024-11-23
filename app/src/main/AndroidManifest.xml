@@ -43,10 +43,16 @@
             android:name=".Diary"
             android:exported="false" />
         <activity
+            android:name=".Home"
+            android:exported="false" />
+        <activity
             android:name=".MakeProfile"
             android:exported="false" />
         <activity
             android:name=".FestivalInfo"
+            android:exported="false" />
+        <activity
+            android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

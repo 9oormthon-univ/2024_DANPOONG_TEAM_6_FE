@@ -83,7 +83,7 @@ public class MainActivity extends AppCompatActivity {
                             if (response.isSuccessful()) {
                                 // 성공 처리
                                 Toast.makeText(MainActivity.this, "Login successful!", Toast.LENGTH_SHORT).show();
-                                Intent intent = new Intent(MainActivity.this, MakeProfile.class);
+                                Intent intent = new Intent(MainActivity.this, Home.class);
                                 startActivity(intent);
                             } else {
                                 // 실패 처리

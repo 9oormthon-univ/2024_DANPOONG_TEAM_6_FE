@@ -1,9 +1,13 @@
 package com.example.onfest;
 
+import static androidx.core.content.ContentProviderCompat.requireContext;
+
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CalendarView;
@@ -14,9 +18,12 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -26,6 +33,19 @@ import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
+
+import okhttp3.MultipartBody;
+import okhttp3.RequestBody;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
+import retrofit2.http.GET;
+import retrofit2.http.Header;
+import retrofit2.http.Multipart;
+import retrofit2.http.POST;
+import retrofit2.http.Part;
 
 public class Home extends AppCompatActivity {
 
@@ -37,6 +57,7 @@ public class Home extends AppCompatActivity {
     private Button calendarOkButton;
     private Button calendarCancelButton;
     private TextView modalDateText;
+    private FestivalAdapter adapter;
 
     private int selectedYear;
     private int selectedMonth;
@@ -71,7 +92,9 @@ public class Home extends AppCompatActivity {
 
         // 초기 달력 설정
         updateCalendarDates(selectedYear, selectedMonth);
-
+        adapter = new FestivalAdapter(new ArrayList<>()); // 초기 빈 리스트로 생성
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView.setAdapter(adapter);
         // 나머지 초기화 및 이벤트 연결
         setupEventListeners();
     }
@@ -381,5 +404,40 @@ public class Home extends AppCompatActivity {
                 "2024-10-31",
                 "광주"
         ));
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
+        bottomNavigationView.setSelectedItemId(R.id.menu_home);
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                int id = item.getItemId();
+
+                if (id == R.id.menu_home) {
+                    startActivity(new Intent(Home.this, Home.class));
+                    finish();
+                    return true;
+                } else if (id == R.id.menu_explore) {
+                    startActivity(new Intent(Home.this, Home.class));
+                    finish();
+                    return true;
+                } else if (id == R.id.menu_snippet) {
+                    startActivity(new Intent(Home.this, FestivalInfo.class));
+                    finish();
+                    return true;
+                } else if (id == R.id.menu_note) {
+                    startActivity(new Intent(Home.this, Diary.class));
+                    finish();
+                    return true;
+                } else if (id == R.id.menu_account) {
+                    startActivity(new Intent(Home.this, Home.class));
+                    finish();
+                    return true;
+                }
+                return false;
+            }
+        });
     }
+}
+interface HomeApiService{
+    @GET("/festival/all")
+    Call<List<Festival>> getFestInfoAll();
 }

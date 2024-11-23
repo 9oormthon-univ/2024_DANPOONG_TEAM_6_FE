@@ -43,7 +43,7 @@ public class Diary extends AppCompatActivity {
                     finish();
                     return true;
                 } else if (id == R.id.menu_snippet) {
-                    startActivity(new Intent(Diary.this, Home.class));
+                    startActivity(new Intent(Diary.this, FestivalInfo.class));
                     finish();
                     return true;
                 } else if (id == R.id.menu_note) {
