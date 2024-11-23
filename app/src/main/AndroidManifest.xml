@@ -13,9 +13,6 @@
         android:theme="@style/Theme.OnFest"
         tools:targetApi="31">
         <activity
-            android:name=".MakeProfile"
-            android:exported="false" />
-        <activity
             android:name=".DiaryWrite"
             android:exported="false" />
         <activity
