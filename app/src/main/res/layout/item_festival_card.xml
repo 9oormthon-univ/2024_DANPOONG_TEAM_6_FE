@@ -10,7 +10,9 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:cardCornerRadius="15dp"
-        app:cardElevation="0dp">
+        app:cardElevation="0dp"
+        app:strokeColor="@color/black"
+        app:strokeWidth="1dp">
 
         <ImageView
             android:id="@+id/selected_image"
@@ -30,7 +32,8 @@
         android:text="축제 이름"
         android:padding="10dp"
         android:textColor="@color/black"
-        android:textSize="20sp" />
+        android:textSize="20sp"
+        app:strokeWidth="5dp"/>
     <TextView
         android:id="@+id/festival_subTitle"
         android:layout_width="match_parent"

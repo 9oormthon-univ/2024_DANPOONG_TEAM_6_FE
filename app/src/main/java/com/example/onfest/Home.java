@@ -2,10 +2,13 @@ package com.example.onfest;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CalendarView;
+import android.widget.GridLayout;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -30,7 +33,7 @@ public class Home extends AppCompatActivity {
     private View calendarOverlay;
     private View contentPanel;
     private TextView monthHeader;
-    private Button calendarOpenButton;
+    private ImageButton calendarOpenButton;
     private Button calendarOkButton;
     private Button calendarCancelButton;
     private TextView modalDateText;
@@ -46,11 +49,8 @@ public class Home extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
-        festivalListContainer = findViewById(R.id.festival_list_container);
-
-        SettingFestival();
-
         // View 초기화
+        festivalListContainer = findViewById(R.id.festival_list_container);
         calendarView = findViewById(R.id.calendarView);
         calendarOverlay = findViewById(R.id.calendarOverlay); // CalendarView의 Overlay 레이아웃
         contentPanel = findViewById(R.id.contentPanel); // Content Panel 레이아웃
@@ -61,6 +61,9 @@ public class Home extends AppCompatActivity {
         modalDateText = findViewById(R.id.modal_date_text); // 선택된 날짜 표시 텍스트
         recyclerView = findViewById(R.id.recyclerView);
 
+        // 축제 데이터 초기화
+        SettingFestival();
+
         // 초기 날짜 설정
         Calendar calendar = Calendar.getInstance();
         selectedYear = calendar.get(Calendar.YEAR);
@@ -69,91 +72,8 @@ public class Home extends AppCompatActivity {
         // 초기 달력 설정
         updateCalendarDates(selectedYear, selectedMonth);
 
-        // CalendarView Overlay 표시 버튼 클릭
-        calendarOpenButton.setOnClickListener(v -> {
-            if (contentPanel.getVisibility() == View.VISIBLE) {
-                // contentPanel이 활성화된 경우 동작 방지
-                return;
-            }
-            calendarOverlay.setVisibility(View.VISIBLE);
-        });
-
-        // CalendarView 날짜 선택 리스너
-        calendarView.setOnDateChangeListener((view, year, month, dayOfMonth) -> {
-            selectedYear = year;
-            selectedMonth = month; // 0부터 시작하는 월
-        });
-
-        // OK 버튼 클릭 시
-        calendarOkButton.setOnClickListener(v -> {
-            if (contentPanel.getVisibility() == View.VISIBLE) {
-                // contentPanel이 활성화된 경우 동작 방지
-                return;
-            }
-            updateCalendarDates(selectedYear, selectedMonth);
-            calendarOverlay.setVisibility(View.GONE); // CalendarView 숨기기
-        });
-
-        // Cancel 버튼 클릭 시
-        calendarCancelButton.setOnClickListener(v -> {
-            calendarOverlay.setVisibility(View.GONE);
-        });
-
-        // Content Panel 닫기 버튼
-        findViewById(R.id.modal_exit_btn).setOnClickListener(v -> {
-            contentPanel.setVisibility(View.GONE); // Content Panel 숨기기
-        });
-
-        // GridLayout 날짜 클릭 리스너 추가
-        for (int i = 1; i <= 42; i++) { // 42개의 날짜 셀
-            String textViewId = "calendar" + i;
-            int resId = getResources().getIdentifier(textViewId, "id", getPackageName());
-            TextView dateView = findViewById(resId);
-
-            dateView.setClickable(true);
-
-            dateView.setOnClickListener(v -> {
-                if (calendarOverlay.getVisibility() == View.VISIBLE) {
-                    // calendarOverlay가 활성화된 경우 동작 방지
-                    return;
-                }
-
-                contentPanel.setVisibility(View.VISIBLE);
-
-                // 클릭한 날짜 가져오기
-                String clickedDate = dateView.getText().toString();
-                if (!clickedDate.isEmpty()) {
-                    // 선택된 날짜 업데이트
-                    String formattedDate = selectedYear + "년 " + (selectedMonth + 1) + "월 " + clickedDate + "일";
-                    modalDateText.setText(formattedDate);
-
-                    // Content Panel 표시
-                    List<Festival> filteredFestivals = getFestivalsForDate(formattedDate);
-
-                    if (filteredFestivals.isEmpty()) {
-                        // 축제가 없을 경우 contentConstrainLayer 활성화
-                        findViewById(R.id.content_constrain).setVisibility(View.VISIBLE);
-                        findViewById(R.id.recyclerView).setVisibility(View.GONE);
-                    } else {
-                        // 축제가 있을 경우 RecyclerView 활성화 및 데이터 업데이트
-                        findViewById(R.id.content_constrain).setVisibility(View.GONE);
-                        findViewById(R.id.recyclerView).setVisibility(View.VISIBLE);
-                        updateRecyclerView(filteredFestivals);
-                    }
-                }
-            });
-        }
-
-        // 축제 카드 동적 추가
-        List<Festival> currentMonthFestivals = getFestivalsForMonth(selectedYear, selectedMonth);
-        if (!currentMonthFestivals.isEmpty()) {
-            // 축제 리스트를 섞고 최대 5개를 선택
-            Collections.shuffle(currentMonthFestivals);
-            int maxCards = Math.min(5, currentMonthFestivals.size());
-            for (int i = 0; i < maxCards; i++) {
-                addFestivalCard(currentMonthFestivals.get(i));
-            }
-        }
+        // 나머지 초기화 및 이벤트 연결
+        setupEventListeners();
     }
 
     private List<Festival> getFestivalsForMonth(int year, int month) {
@@ -226,20 +146,26 @@ public class Home extends AppCompatActivity {
     private void updateRecyclerView(List<Festival> filteredFestivals) {
         if (filteredFestivals == null || filteredFestivals.isEmpty()) {
             Log.e("DEBUG", "Filtered festival list is empty!");
-            Toast.makeText(this, "No festivals found for the selected date.", Toast.LENGTH_SHORT).show();
-            return;
+            recyclerView.setVisibility(View.GONE);
         }
-
-        for (Festival festival : filteredFestivals) {
-            Log.d("DEBUG", "Festival: " + festival.title);
+        else {
+            Log.d("DEBUG", "Festival list size: " + filteredFestivals.size());
+            recyclerView.setVisibility(View.VISIBLE);
         }
 
         FestivalAdapter adapter = new FestivalAdapter(filteredFestivals);
+        Log.d("DEBUG", "FestivalAdapter created with size: " + filteredFestivals.size());
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(adapter);
+        adapter.notifyDataSetChanged();
     }
 
     private void updateCalendarDates(int year, int month) {
+        GridLayout gridLayout = findViewById(R.id.custom_calendar);
+
+        // 기존 뷰 제거
+        gridLayout.removeAllViews();
+
         Calendar calendar = Calendar.getInstance();
 
         // month_header 텍스트 업데이트
@@ -249,44 +175,51 @@ public class Home extends AppCompatActivity {
         // 현재 달의 첫 날로 설정
         calendar.set(year, month, 1);
         int firstDayOfWeek = calendar.get(Calendar.DAY_OF_WEEK); // 1 = 일요일, 7 = 토요일
-
         int daysInCurrentMonth = calendar.getActualMaximum(Calendar.DAY_OF_MONTH);
 
         calendar.add(Calendar.MONTH, -1); // 이전 달로 이동
         int daysInPreviousMonth = calendar.getActualMaximum(Calendar.DAY_OF_MONTH);
 
-        calendar.add(Calendar.MONTH, 2); // 다음 달로 이동
-        int daysInNextMonth = calendar.getActualMaximum(Calendar.DAY_OF_MONTH);
-
-        calendar.set(year, month, 1);
         int startOffset = firstDayOfWeek - Calendar.SUNDAY;
 
-        // TextView에 날짜 채우기
-        for (int i = 1; i <= 42; i++) {
-            String textViewId = "calendar" + i;
-            int resId = getResources().getIdentifier(textViewId, "id", getPackageName());
-            TextView textView = findViewById(resId);
+        // 날짜 채우기
+        float density = getResources().getDisplayMetrics().density; // dp to pixel 변환용
 
-            if (i <= startOffset) {
-                int day = daysInPreviousMonth - (startOffset - i);
+        for (int i = 0; i < 42; i++) { // 최대 6주 * 7일 = 42칸
+            TextView textView = new TextView(this);
+
+            // TextView 기본 속성 설정
+            GridLayout.LayoutParams params = new GridLayout.LayoutParams();
+            params.width = 0; // GridLayout에서 column weight로 자동 너비 설정
+            params.height = (int) (50 * density); // 50dp를 px로 변환
+            params.columnSpec = GridLayout.spec(GridLayout.UNDEFINED, 1, 1f); // 동일 weight
+            params.rowSpec = GridLayout.spec(GridLayout.UNDEFINED, 1, 1f); // 동일 weight
+            textView.setLayoutParams(params);
+
+            textView.setGravity(Gravity.CENTER);
+            textView.setPadding(8, 8, 8, 8);
+
+            if (i < startOffset) {
+                // 이전 달 날짜
+                int day = daysInPreviousMonth - (startOffset - i - 1);
                 textView.setText(String.valueOf(day));
                 textView.setAlpha(0.5f); // 이전 달 날짜 희미하게 표시
-                textView.setBackground(null); // 배경 초기화
-                textView.setCompoundDrawablesWithIntrinsicBounds(null, null, null, null); // 밑에 원 제거
-            } else if (i > startOffset + daysInCurrentMonth) {
-                int day = i - (startOffset + daysInCurrentMonth);
+            } else if (i >= startOffset + daysInCurrentMonth) {
+                // 다음 달 날짜
+                int day = i - (startOffset + daysInCurrentMonth) + 1;
                 textView.setText(String.valueOf(day));
                 textView.setAlpha(0.5f); // 다음 달 날짜 희미하게 표시
-                textView.setBackground(null); // 배경 초기화
-                textView.setCompoundDrawablesWithIntrinsicBounds(null, null, null, null); // 밑에 원 제거
             } else {
-                int day = i - startOffset;
+                // 현재 달 날짜
+                int day = i - startOffset + 1;
                 textView.setText(String.valueOf(day));
                 textView.setAlpha(1.0f); // 현재 달 날짜는 기본 상태
 
+                // 현재 날짜와 비교하여 추가 스타일 설정
                 String currentDate = year + "년 " + String.format(Locale.getDefault(), "%02d", (month + 1)) + "월 " + String.format(Locale.getDefault(), "%02d" + "일", day);
-                boolean hasFestival = false;
 
+                boolean hasFestival = false;
+                
                 for (Festival festival : festivalList) {
                     if (isDateWithinRange(currentDate, festival.startDate, festival.endDate)) {
                         hasFestival = true;
@@ -302,7 +235,23 @@ public class Home extends AppCompatActivity {
                 } else {
                     textView.setCompoundDrawablesWithIntrinsicBounds(null, null, null, null); // 원 제거
                 }
+
+                // 클릭 이벤트 추가
+                textView.setOnClickListener(v -> {
+                    if (contentPanel.getVisibility() == View.VISIBLE) {
+                        return; // contentPanel이 활성화된 경우 동작 방지
+                    }
+
+                    String formattedDate = year + "년 " + String.format(Locale.getDefault(), "%02d", (month + 1)) + "월 " + String.format(Locale.getDefault(), "%02d", day) + "일";
+                    modalDateText.setText(formattedDate);
+                    List<Festival> filteredFestivals = getFestivalsForDate(formattedDate);
+                    updateRecyclerView(filteredFestivals);
+                    contentPanel.setVisibility(View.VISIBLE);
+                });
             }
+
+            // GridLayout에 추가
+            gridLayout.addView(textView);
         }
 
         updateFestivalCards(year, month);
@@ -341,6 +290,41 @@ public class Home extends AppCompatActivity {
 
         // 카드 추가
         festivalListContainer.addView(festivalCard);
+    }
+
+    private void setupEventListeners() {
+        // CalendarView Overlay 표시 버튼 클릭
+        calendarOpenButton.setOnClickListener(v -> {
+            if (contentPanel.getVisibility() == View.VISIBLE) {
+                return; // contentPanel이 활성화된 경우 동작 방지
+            }
+            calendarOverlay.setVisibility(View.VISIBLE);
+        });
+
+        // CalendarView 날짜 선택 리스너
+        calendarView.setOnDateChangeListener((view, year, month, dayOfMonth) -> {
+            selectedYear = year;
+            selectedMonth = month; // 0부터 시작하는 월
+        });
+
+        // OK 버튼 클릭 시
+        calendarOkButton.setOnClickListener(v -> {
+            if (contentPanel.getVisibility() == View.VISIBLE) {
+                return; // contentPanel이 활성화된 경우 동작 방지
+            }
+            updateCalendarDates(selectedYear, selectedMonth);
+            calendarOverlay.setVisibility(View.GONE); // CalendarView 숨기기
+        });
+
+        // Cancel 버튼 클릭 시
+        calendarCancelButton.setOnClickListener(v -> {
+            calendarOverlay.setVisibility(View.GONE);
+        });
+
+        // Content Panel 닫기 버튼
+        findViewById(R.id.modal_exit_btn).setOnClickListener(v -> {
+            contentPanel.setVisibility(View.GONE); // Content Panel 숨기기
+        });
     }
 
     private void SettingFestival() {
