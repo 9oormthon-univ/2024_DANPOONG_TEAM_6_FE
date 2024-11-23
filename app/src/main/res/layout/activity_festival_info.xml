@@ -39,7 +39,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="프로필 설정"
+                android:text="순창 떡볶이 페스타"
                 android:fontFamily="@font/maplestory_light"
                 android:textColor="@android:color/black"
                 android:textSize="20sp" />
@@ -50,50 +50,106 @@
         android:layout_height="match_parent"
         android:background="#FEFCE9"
         android:orientation="vertical"
-        android:padding="16dp"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-            <ImageView
-                android:id="@+id/festival_photo"
+        <ImageView
+            android:id="@+id/festival_photo"
+            android:layout_width="match_parent"
+            android:layout_height="365dp"
+            android:background="@drawable/ic_launcher_background"
+            android:scaleType="fitXY"
+            android:visibility="visible" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="50dp"
+            android:layout_marginStart="25dp"
+            android:layout_marginEnd="25dp"
+            android:padding="15dp"
+            android:background="@drawable/rounded_edittext_border">
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:visibility="visible"
-                app:backgroundTint="#D9D9D9" />
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-            <TextView
-                android:id="@+id/nickname_input"
+                android:orientation="horizontal"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp">
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ellipse_2"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginEnd="10dp"/>
+                <TextView
+                    android:id="@+id/contentNameTxt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:fontFamily="@font/pretendard_regular"
+                    android:text="2024 순창떡볶이 페스타"
+                    android:textSize="16sp"
+                    android:textColor="#000000"
+                    android:gravity="center_vertical"/>
+            </LinearLayout>
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="136dp"
-                android:layout_gravity="center"
-                android:background="@drawable/rounded_edittext_border"
-                app:layout_constraintTop_toBottomOf="@id/textView1"
-                app:layout_constraintEnd_toEndOf="@id/textView1"
-                app:layout_constraintStart_toStartOf="@id/textView1"
-                android:fontFamily="@font/pretendard_regular"
-                android:maxLength="5"
-                android:padding="24dp"
-                android:inputType="text"
-                android:textSize="16sp"
-                android:textColor="#000000" />
-        </FrameLayout>
-            <Button
-                android:id="@+id/BtnSm"
-                android:layout_width="80dp"
-                android:layout_height="40dp"
-                android:layout_marginTop="237dp"
-                android:background="@drawable/green_rounded_background"
-                app:layout_constraintTop_toBottomOf="@id/nickname_input"
-                app:layout_constraintEnd_toEndOf="@id/nickname_input"
-                android:text="완료"
-                android:padding="8dp"
-                android:layout_gravity="center"
-                android:textColor="@color/black"
-                android:textSize="16sp"
-                android:visibility="visible"
-                android:fontFamily="@font/maplestory_light"
-                app:backgroundTint="@color/Primary" />
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp">
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/date_range_icon"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginEnd="10dp"/>
+                <TextView
+                    android:id="@+id/contentDateTxt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:fontFamily="@font/pretendard_regular"
+                    android:text="2024.11.16 ~ 2024.11.17"
+                    android:textSize="16sp"
+                    android:textColor="#000000"
+                    android:gravity="center_vertical"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp">
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/place_icon"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginEnd="10dp"/>
+                <TextView
+                    android:id="@+id/contenPositionTxt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:fontFamily="@font/pretendard_regular"
+                    android:text="순창 전통고추장 민속마을"
+                    android:textSize="16sp"
+                    android:textColor="#000000"
+                    android:gravity="center_vertical"/>
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/exlainText"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_margin="20dp"
+            android:fontFamily="@font/maplestory_light"
+            android:text="분식대장 떡볶이의 대활약이 펼쳐지는 '2024 순창 떡볶이 페스타' 개최된다. 이날 행사를 통해 한국인의 소울푸드 떡볶이의 무한한 변신을 만날 수 있는 특별한 경험을 선사할 예정이며, 남녀노소 누구나 볼거리, 즐길거리, 먹거리가 풍성한 축제를 즐길 수 있다."
+            android:textSize="16sp" />
+
+
     </LinearLayout>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
