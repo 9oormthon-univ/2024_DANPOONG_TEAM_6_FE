@@ -83,12 +83,21 @@
                 app:backgroundTint="#D2E18D" />
 
             <!-- Image View -->
+            <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="visible"
+            app:cardCornerRadius="15dp"
+            app:cardElevation="0dp">
+
             <ImageView
                 android:id="@+id/selected_image"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:adjustViewBounds="true"
                 android:scaleType="centerCrop"
-                android:visibility="gone" />
+                android:src="@drawable/ic_launcher_background" />
+        </com.google.android.material.card.MaterialCardView>
 
             <!-- "X" Button -->
             <Button
@@ -96,12 +105,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom"
-                android:background="@drawable/white_circle_background"
+                android:background="@drawable/white_bottom_circle_background"
                 android:text="x"
                 android:textColor="@color/black"
                 android:textSize="14sp"
-                android:visibility="gone"
-                app:backgroundTint="@color/white" />
+                android:visibility="visible"
+                app:backgroundTint="#FFFFFF" />
         </FrameLayout>
 
         <TextView

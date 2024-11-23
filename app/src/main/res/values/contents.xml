@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 축제 이름 배열 -->
+    <string-array name="festival_names">
+        <item>축제 1</item>
+        <item>축제 2</item>
+        <item>축제 3</item>
+    </string-array>
+
+    <!-- 축제 시작 날짜 배열 (YYYY-MM-DD 형식) -->
+    <string-array name="festival_start_dates">
+        <item>2024-11-01</item>
+        <item>2024-10-05</item>
+        <item>2024-11-10</item>
+    </string-array>
+
+    <!-- 축제 끝나는 날짜 배열 (YYYY-MM-DD 형식) -->
+    <string-array name="festival_end_dates">
+        <item>2024-11-03</item>
+        <item>2024-10-07</item>
+        <item>2024-11-12</item>
+    </string-array>
+
+    <!-- 축제 부제 배열 -->
+    <string-array name="festival_subtitles">
+        <item>부제목 1</item>
+        <item>부제목 2</item>
+        <item>부제목 3</item>
+    </string-array>
+
+    <!-- 축제 지역명 배열 -->
+    <string-array name="festival_locations">
+        <item>서울</item>
+        <item>부산</item>
+        <item>대구</item>
+    </string-array>
+
+    <!-- 축제 진행 여부 배열 -->
+    <string-array name="festival_status">
+        <item>true</item>
+        <item>false</item>
+        <item>true</item>
+    </string-array>
+</resources>
